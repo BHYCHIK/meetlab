@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Вы успешно вышли</h1>
+    <script>window.location.replace("{% url 'index_page' %}");</script>
+{% endblock %}

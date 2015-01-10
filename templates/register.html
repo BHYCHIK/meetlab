@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="." method="POST">
+    Логин: <input type="text" name="login"> <br>
+    Пароль: <input type="text" name="password"> <br>
+    Возраст: <input type="number" name="age"> <br>
+    Email: <input type="email" name="email"> <br>
+    Имя: <input type="text" name="name"> <br>
+    Телефон: <input type="text" name="phone"> <br>
+    {% csrf_token %}
+    <input type="submit">
+    </form>
+{% endblock %}

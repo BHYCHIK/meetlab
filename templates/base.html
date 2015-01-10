@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Встречи :: {{ title }} </title>
+</head>
+<body>
+
+<div align="top">
+    <h1 align="center">Встречи</h1><br>
+    <div align="right">
+    {% if session %}
+        Здравствуйте, <b>{{ session.login }}</b> (<a href="{% url 'logout_page' %}">Выйти</a>)
+    {% else %}
+        Вы не залогинены. <a href="{% url 'login_page' %}">Войти</a> | <a href="{% url 'register_page' %}">Зарегистрироваться</a>
+    {% endif %}
+    </div>
+</div>
+    <table>
+    <tr>
+    <td valign="top" width="30%">
+        <h4> <i>Меню</i></h4>
+        <a href="{% url 'index_page' %}">Главная</a><br>
+        <a href="{% url 'places_page' 1 %}">Места</a><br>
+        {% if session %}
+            <a href="{% url 'plans_page' 1 %}">Встречи</a><br>
+        {% endif %}
+    </td>
+    <td align="center" valign="middle">
+        {% block content %}
+        {% endblock %}
+    </td>
+        </tr>
+        </table>
+
+
+
+</body>
+</html>
